@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Robotics Club Website</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
+    <link href="https://fonts.googleapis.com/css2?family=Roboto&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
+    
+    
+    <style></style>
+</head>
+<body>
+    
+    
+          <div class="navbar">
+            <div class="navbar-logo">
+                <img src="logo.png" alt="Club Logo">
+            </div>
+            <ul class="navbar-links">
+                <h2></h2>
+                
+                 <li><a class="hov"href="index.html">Home</a></li>
+                 <li><a class="a"href="index.html">Contact</a></li>
+                 <li><a class="a"href="index.html">Search</a></li>
+               
+            </ul>
+        </div>
+
+
+    <div class="content-container">
+        
+        <!-- Navigation Panel -->
+        <!-- Tasks Container -->
+        <div class="tasks-container">
+            <!-- Task Card -->
+            <div class="task-card">
+                
+                
+                
+                
+                <h3>Task 01 - 10 Marks (6×10=60 for team)</h3>
+                <h2>Create a Buzzer worked by ultrasonic senser</h2>
+                
+                <p>
+  Use this code and create a working circuit using TinkerCAD or at home, and bring it or send it. 
+  If the team completes it, points will be reserved. <br>
+  Read the code and understand the ports.
+</p>
+
+                <h4>Code↧</h4>
+                
+                <p class="code">long duration;              // හඬ තරංග ගමනේ කාලය<br>
+int distance;               // දුර<br>
+int safetyDistance = 10;    // ආරක්ෂාව සඳහා දුර (සෙන්ටිමීටර් 10)<br>
+<br>
+void setup() {<br>  pinMode(13, OUTPUT);      // පින් 13 (LED) OUTPUT ලෙස සකසන්න
+<br>  pinMode(9, OUTPUT);       // පින් 9 (Ultrasonic sensor - trigPin) OUTPUT ලෙස සකසන්න
+<br>  pinMode(10, INPUT);       // පින් 10 (Ultrasonic sensor - echoPin) INPUT ලෙස සකසන්න
+  <br>Serial.begin(9600);       // Serial Communication ආරම්භ කිරීම (9600 baud rate)
+<br>}
+<br>
+<br>void loop() {
+  <br>// trigPin එක පවා (LOW) තත්වයට දමනවා
+  <br>digitalWrite(9, LOW);     
+  <br>delayMicroseconds(2);     // මතක තබා ගන්නවා
+
+<br>  // trigPin එක HIGH තත්වයට දමනවා (10 microseconds)
+<br>  digitalWrite(9, HIGH);    
+<br>  delayMicroseconds(10);    
+<br>  digitalWrite(9, LOW);     // trigPin එක නැවත LOW
+<br>
+<br>  // echoPin එකෙන් pulse එකේ කාලය පරික්ෂා කිරීම
+<br>  duration = pulseIn(10, HIGH); // echoPin එකේ pulse එකක් මැනීම
+<br>
+<br>  // distance ගණනය කිරීම (සෙන්ටිමීටර් වලින්)
+<br>  distance = duration * 0.034 / 2;  // sound speed 0.034 cm/μs, distance = duration * speed / 2
+<br>
+<br>  // distance <= safetyDistance නම් LED ON කරන්න
+<br>  if (distance <= safetyDistance) {
+<br>    digitalWrite(13, HIGH);  // LED (or buzzer) පාලනය කරන්න (සක්‍රීය කිරීම)
+<br>  } else {
+<br>    digitalWrite(13, LOW);   // LED (or buzzer) අක්‍රිය කිරීම
+<br>  }
+
+<br>  // Distance ප්‍රින්ට් කිරීම (Serial Monitor එකට)
+<br>  Serial.print("Distance: ");
+<br>  Serial.println(distance);  // distance value එක Serial Monitor එකේ ප්‍රින්ට් කරන්න
+  
+<br>  delay(500); // 500 ms පමණ නතර කරනවා, පසුව නැවත loop එකක් ක්‍රියාත්මක වේ
+}</p>
+    <center>     <button  onclick="location.href='https://wa.me/94766428832?';" style="
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        background-color: #25D366;
+        color: white;
+        border: none;
+        border-radius: 5px;
+        padding: 10px 20px;
+        font-size: 16px;
+        cursor: pointer;
+        text-decoration: none;
+    ">
+        <i class="fab fa-whatsapp" style="margin-right: 10px; font-size: 18px;"></i>
+        Send via WhatsApp
+    </button>    </center>           
+            </div>
+            <div class="task-card">
+                <h3>Task 02</h3>
+                <p>Details about Task 02...</p>
+                <button class="marks-btn">Marks</button>
+            </div>
+            <!-- Add more task cards as needed -->
+        </div>
+    </div>
+</body>
+</html>
